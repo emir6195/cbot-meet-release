@@ -3,9 +3,8 @@ version: '3.5'
 services:
     # # Frontend
     web:
-        # image: jitsi/web:${JITSI_IMAGE_VERSION:-stable}
-        # image: jitsi/web:${JITSI_IMAGE_VERSION:-latest}
-        image: emir6195/cbot-jitsi-applem1:latest
+        # image: emir6195/cbot-jitsi-applem1:latest
+        image: emir6195/cbot-jitsi-linux-server:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
