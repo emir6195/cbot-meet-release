@@ -3,10 +3,8 @@
 services:
     # # Frontend
     web:
-        # image: emir6195/cbot-jitsi-applem1:latest
-        # image: emir6195/cbot-jitsi-linux-server:latest
-        # image: jitsi/web:unstable-2023-01-23
-        image: emir6195/cbot-jitsi-applem1-v0.0.2:latest
+        # image: emir6195/cbot-jitsi-applem1-v0.0.2:latest
+        image: emir6195/cbot-jitsi-linux-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
