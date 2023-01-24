@@ -1,7 +1,7 @@
 ARG JITSI_REPO=jitsi
 ARG BASE_TAG=stable
 # FROM ${JITSI_REPO}/base:${BASE_TAG}
-FROM jitsi/web:stable-8218
+FROM jitsi/web:unstable-2023-01-23
 
 LABEL org.opencontainers.image.title="Jitsi Meet"
 LABEL org.opencontainers.image.description="WebRTC compatible JavaScript application that uses Jitsi Videobridge to provide high quality, scalable video conferences."

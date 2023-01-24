@@ -5,7 +5,8 @@ services:
     web:
         # image: emir6195/cbot-jitsi-applem1:latest
         # image: emir6195/cbot-jitsi-linux-server:latest
-        image: jitsi/web:stable-8218
+        # image: jitsi/web:unstable-2023-01-23
+        image: emir6195/cbot-jitsi-applem1-v0.0.2:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
@@ -159,7 +160,8 @@ services:
     # XMPP server
     prosody:
         # image: jitsi/prosody:unstable-2023-01-20
-        image: jitsi/prosody:stable-8218
+        # image: jitsi/prosody:stable-8218
+        image: emir6195/cbot-prosody-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         expose:
             - '${XMPP_PORT:-5222}'
@@ -256,7 +258,8 @@ services:
     # Focus component
     jicofo:
         # image: jitsi/jicofo:unstable-2023-01-20
-        image: jitsi/jicofo:stable-8218
+        # image: jitsi/jicofo:stable-8218
+        image: emir6195/cbot-jicofo-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         volumes:
             - ${CONFIG}/jicofo:/config:Z
@@ -304,7 +307,8 @@ services:
 
     # Video bridge
     jvb:
-        image: jitsi/jvb:stable-8218
+        # image: jitsi/jvb:stable-8218
+        image: emir6195/cbot-jvb-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${JVB_PORT:-10000}:${JVB_PORT:-10000}/udp'
@@ -345,7 +349,8 @@ services:
         networks:
             meet.jitsi:
     jibri:
-        image: jitsi/jibri:stable-8218
+        # image: jitsi/jibri:stable-8218
+        image: emir6195/cbot-jibri-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         volumes:
             - ${CONFIG}/jibri:/config:Z
@@ -383,7 +388,8 @@ services:
         networks:
             meet.jitsi:
     etherpad:
-        image: etherpad/etherpad:1.8.6
+        # image: etherpad/etherpad:1.8.6
+        image: emir6195/cbot-etherpad-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         environment:
             - TITLE=${ETHERPAD_TITLE}
