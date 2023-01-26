@@ -3,8 +3,8 @@
 services:
     # # Frontend
     web:
-        # image: emir6195/cbot-jitsi-applem1-v0.0.2:latest
-        image: emir6195/cbot-jitsi-linux-v0.0.1:latest
+        # image: emir6195/cbot-jitsi-applem1-v0.0.3:latest
+        image: emir6195/cbot-jitsi-linux-v0.0.2:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
@@ -389,6 +389,8 @@ services:
         image: etherpad/etherpad:1.8.6
         # image: emir6195/cbot-etherpad-v0.0.1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
+        ports:
+            - 127.0.0.1:9001:9001
         environment:
             - TITLE=${ETHERPAD_TITLE}
             - DEFAULT_PAD_TEXT=${ETHERPAD_DEFAULT_PAD_TEXT}
