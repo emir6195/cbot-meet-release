@@ -3,8 +3,8 @@
 services:
     # # Frontend
     web:
-        # image: emir6195/cbot-jitsi-applem1-v0.0.3:latest
-        image: emir6195/cbot-jitsi-linux-v0.0.2:latest
+        image: emir6195/cbot-jitsi-applem1-v0.0.4:latest
+        # image: emir6195/cbot-jitsi-linux-v0.0.2:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
@@ -400,6 +400,16 @@ services:
             meet.jitsi:
                 aliases:
                     - etherpad.meet.jitsi
+    jibri-downloader:
+        image: emir6195/jibri-downloader-app:latest
+        restart: ${RESTART_POLICY:-unless-stopped}
+        volumes:
+            - ${CONFIG}/jibri:/config:Z
+        ports:
+            - 127.0.0.1:5010:5010
+        environment:
+            - JIBRI_DOWNLOADER_DIRNAME=${JIBRI_DOWNLOADER_DIRNAME}
+            - JIBRI_DOWNLOADER_PORT=${JIBRI_DOWNLOADER_PORT}
 
 
 # Custom network so all services can communicate using a FQDN
