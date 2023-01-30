@@ -152,6 +152,8 @@ services:
             - XMPP_PORT
             - WHITEBOARD_ENABLED
             - WHITEBOARD_COLLAB_SERVER_BASE_URL
+            - WHITEBOARD_DOMAIN
+            - WHITEBOARD_COLLAB_SERVER_PUBLIC_URL
         networks:
             meet.jitsi:
 
@@ -410,6 +412,19 @@ services:
         environment:
             - JIBRI_DOWNLOADER_DIRNAME=${JIBRI_DOWNLOADER_DIRNAME}
             - JIBRI_DOWNLOADER_PORT=${JIBRI_DOWNLOADER_PORT}
+    excelidraw:
+        image: emir6195/excelidraw:latest
+        restart: ${RESTART_POLICY:-unless-stopped}
+        depends_on:
+            - web
+        ports:
+            - 127.0.0.1:9090:9090
+        networks:
+            meet.jitsi:
+                aliases:
+                    - ${WHITEBOARD_DOMAIN:-excelidraw.meet.jitsi}
+
+
 
 
 # Custom network so all services can communicate using a FQDN
