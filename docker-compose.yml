@@ -3,8 +3,8 @@
 services:
     # # Frontend
     web:
-        image: emir6195/cbot-jitsi-applem1-v0.0.4:latest
-        # image: emir6195/cbot-jitsi-linux-v0.0.2:latest
+        # image: emir6195/cbot-jitsi-applem1-v0.0.4:latest
+        image: emir6195/cbot-jitsi-linux-v0.0.3:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         ports:
             - '${HTTP_PORT}:80'
@@ -412,8 +412,8 @@ services:
         environment:
             - JIBRI_DOWNLOADER_DIRNAME=${JIBRI_DOWNLOADER_DIRNAME}
             - JIBRI_DOWNLOADER_PORT=${JIBRI_DOWNLOADER_PORT}
-    excelidraw:
-        image: emir6195/excelidraw:latest
+    excalidraw:
+        image: emir6195/excalidraw-linux-v1:latest
         restart: ${RESTART_POLICY:-unless-stopped}
         depends_on:
             - web
@@ -422,7 +422,7 @@ services:
         networks:
             meet.jitsi:
                 aliases:
-                    - ${WHITEBOARD_DOMAIN:-excelidraw.meet.jitsi}
+                    - ${WHITEBOARD_DOMAIN:-excalidraw.meet.jitsi}
 
 
 
