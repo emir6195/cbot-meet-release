@@ -40,6 +40,6 @@ echo "Rebuilding Jitsi-Meet web Docker container and bringing up Docker containe
 
 cd $DOCKER_ROOT || { echo "Failed to find $DOCKER_ROOT"; exit 1; }
 # ./gen-passwords.sh
-docker-compose up -d || { echo "Docker operation failed"; exit 1; }
+# docker-compose up -d || { echo "Docker operation failed"; exit 1; }
 
 echo "Back-end is up"
