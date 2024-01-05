@@ -23,7 +23,7 @@ echo "Rebuilding Jitsi-Meet web Docker image" && sleep 1
 # APPLE M1
 # docker build --platform linux/arm64/v8 -t jitsi/web . || { echo "Docker operation failed"; exit 1; }
 # LINUX SERVER
-docker build --platform linux/amd64 -t jitsi/web . || { echo "Docker operation failed"; exit 1; }
+docker build --platform linux/amd64 -t registry.cbot.ai/cbot-meet-ui . || { echo "Docker operation failed"; exit 1; }
 rm -rf $DOCKER_ROOT/web/jitsi-meet 
 
 echo "Taking down the Docker container stack" && sleep 1
